@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
 	toolbar: theme.mixins.toolbar,
 	content: {
 		...theme.forAllApp,
-		flexGrow: 1
+		flexGrow: 1,
+		margin: theme.spacing(2, 0)
 	}
 }));
 
