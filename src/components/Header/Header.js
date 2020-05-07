@@ -51,9 +51,7 @@ const Header = () => {
 
 					{/* Title */}
 					<Typography variant="h5" className={classes.title}>
-						<Link to={PATHS.home}>
-							{APP_NAME}
-						</Link>
+						<Link to={PATHS.home}>{APP_NAME}</Link>
 					</Typography>
 
 					{/* Icon buttons */}
