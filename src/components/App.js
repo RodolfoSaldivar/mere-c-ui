@@ -1,7 +1,7 @@
 import React from 'react';
-import Container from '@material-ui/core/Container';
 import { BrowserRouter /*, Route*/ } from 'react-router-dom';
 
+import Body from './Body';
 import Theme from './Theme';
 import Header from './Header/Header';
 
@@ -9,10 +9,10 @@ const App = () => (
 	<BrowserRouter>
 		<Theme>
 			<Header />
-			<Container>
+			<Body>
+				App.js
 				{/*<Route exact path="/" component={Other} />*/}
-				dsfdgr
-			</Container>
+			</Body>
 		</Theme>
 	</BrowserRouter>
 );
