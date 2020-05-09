@@ -5,12 +5,14 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 //================================================
 //----> Numbers
 
+export const MAX_IMAGE_SIZE = 5 * 1000000; // 5 MB in bytes
 export const COOKIE_DURATION = 100 * 365 * 86400; // 100 years in seconds
 
 //================================================
 //----> Strings
 
 export const APP_NAME = 'Mere-C';
+export const IMAGE_SIZE_ERROR = `No more than ${MAX_IMAGE_SIZE / 1000000} MB`;
 export const DEFAULT_ERROR_MESSAGE = 'App not loading. Please try again in few minutes.';
 
 export const PATHS = {
@@ -28,7 +30,7 @@ export const PATHS = {
 //----> Booleans
 
 export const IS_IOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
-export const useIsMobile = () => useMediaQuery((theme) => theme.breakpoints.down('md'));
+export const useIsMobile = () => useMediaQuery((theme) => theme.breakpoints.down('xs'));
 
 //================================================
 //----> Functions

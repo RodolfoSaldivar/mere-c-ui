@@ -1,20 +1,25 @@
 import React from 'react';
-import { BrowserRouter /*, Route*/ } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import Body from './Body';
 import Theme from './Theme';
+import Home from './Home/Home';
 import Header from './Header/Header';
+import { PATHS } from '../helpers/constants';
+
+//================================================
 
 const App = () => (
 	<BrowserRouter>
 		<Theme>
 			<Header />
 			<Body>
-				App.js
-				{/*<Route exact path="/" component={Other} />*/}
+				<Route exact path={PATHS.home} component={Home} />
 			</Body>
 		</Theme>
 	</BrowserRouter>
 );
+
+//================================================
 
 export default App;
