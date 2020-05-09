@@ -20,6 +20,7 @@ import TodayOutlined from '@material-ui/icons/TodayOutlined';
 import FormatListBulleted from '@material-ui/icons/FormatListBulleted';
 import ShoppingCartOutlined from '@material-ui/icons/ShoppingCartOutlined';
 
+import words from '../../helpers/words';
 import { PATHS, APP_NAME, IS_IOS } from '../../helpers/constants';
 
 //================================================
@@ -32,14 +33,14 @@ const useStyles = makeStyles(() => ({
 //================================================
 
 const listOptions = [
-	{ text: 'Home', to: PATHS.home, icon: HomeOutlined },
-	{ text: 'Users', to: PATHS.users, icon: PersonOutline },
-	{ text: 'Groups', to: PATHS.groups, icon: GroupOutlined },
-	{ text: 'Rewards', to: PATHS.rewards, icon: Redeem },
-	{ text: 'Requests', to: PATHS.requests, icon: ShoppingCartOutlined },
-	{ text: 'History', to: PATHS.history, icon: History },
-	{ text: 'Permissions', to: PATHS.permissions, icon: FormatListBulleted },
-	{ text: 'Schedules', to: PATHS.schedules, icon: TodayOutlined }
+	{ text: words.home, to: PATHS.home, icon: HomeOutlined },
+	{ text: words.users, to: PATHS.users, icon: PersonOutline },
+	{ text: words.groups, to: PATHS.groups, icon: GroupOutlined },
+	{ text: words.rewards, to: PATHS.rewards, icon: Redeem },
+	{ text: words.requests, to: PATHS.requests, icon: ShoppingCartOutlined },
+	{ text: words.history, to: PATHS.history, icon: History },
+	{ text: words.permissions, to: PATHS.permissions, icon: FormatListBulleted },
+	{ text: words.schedules, to: PATHS.schedules, icon: TodayOutlined }
 ];
 
 //================================================
