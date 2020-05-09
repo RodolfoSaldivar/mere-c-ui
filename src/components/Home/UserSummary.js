@@ -1,5 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
+import EditIcon from '@material-ui/icons/Edit';
 import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -35,7 +36,7 @@ const UserSummary = () => {
 		<Grid container alignItems="center" spacing={2}>
 			<Grid item xs={12} sm={3} md={2}>
 				<Grid container justify="center">
-					<DynamicAvatar />
+					<DynamicAvatar size={120} actionIcon={EditIcon} />
 				</Grid>
 			</Grid>
 
