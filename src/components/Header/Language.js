@@ -1,6 +1,8 @@
 //----> Countries flag icons at:
 //----> https://www.countryflags.com/en/icons-overview/
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { useCookies } from 'react-cookie';
 import Menu from '@material-ui/core/Menu';
 import Grid from '@material-ui/core/Grid';
@@ -13,6 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import mexFlag from '../../img/mexFlag.png';
 import usaFlag from '../../img/usaFlag.png';
 import { COOKIE_DURATION } from '../../helpers/constants';
+import * as headerActions from '../../actions/headerActions';
 
 //================================================
 
@@ -30,6 +33,8 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
+//================================================
+
 const langOptions = [
 	{ country: 'MX', text: 'Español', flag: mexFlag },
 	{ country: 'US', text: 'English', flag: usaFlag }
@@ -37,22 +42,23 @@ const langOptions = [
 
 //================================================
 
-const Language = () => {
+const Language = (props) => {
+	console.log('props: ', props);
 	const classes = useStyles();
-	const [selected, setSelected] = React.useState('');
+	const { language, setLanguage } = props;
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const [cookies, setCookie] = useCookies(['language']);
 
 	//----> If cookie, set to that language; else, default to MX
 	const didMount = () => {
-		if (cookies.language) setSelected(cookies.language);
+		if (cookies.language) setLanguage(cookies.language);
 		else updateCookieTo('MX');
 	};
 	React.useEffect(didMount, []);
 
 	//----> Sets the cookie value
 	const updateCookieTo = (country) => {
-		setSelected(country);
+		setLanguage(country);
 		setCookie('language', country, {
 			path: '/',
 			maxAge: COOKIE_DURATION
@@ -71,7 +77,7 @@ const Language = () => {
 
 	//----> Displays selected lang information
 	const displaySelectedLang = () => {
-		const lang = langOptions.find((lang) => lang.country === selected);
+		const lang = langOptions.find((lang) => lang.country === language);
 		if (!lang) return ''; // Before component did mount
 		return (
 			<Grid container alignItems="center">
@@ -106,4 +112,13 @@ const Language = () => {
 
 //================================================
 
-export default Language;
+Language.propTypes = {
+	// From headerReducer
+	language: PropTypes.string.isRequired,
+	// From headerActions
+	setLanguage: PropTypes.func.isRequired
+};
+
+const mapStateToProps = ({ headerReducer }) => headerReducer;
+
+export default connect(mapStateToProps, headerActions)(Language);
