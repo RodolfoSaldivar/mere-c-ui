@@ -43,7 +43,6 @@ const langOptions = [
 //================================================
 
 const Language = (props) => {
-	console.log('props: ', props);
 	const classes = useStyles();
 	const { language, setLanguage } = props;
 	const [anchorEl, setAnchorEl] = React.useState(null);

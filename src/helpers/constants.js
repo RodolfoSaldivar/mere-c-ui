@@ -39,17 +39,3 @@ export const negativeNumberIn = (actionFileName, functionName, number) => {
 		`${actionFileName} - ${functionName}:\n"${number}" is a negative number.`
 	);
 };
-
-// Finds and returns the wanted cookie from the cookies string
-export const getCookie = (wantedCookie) => {
-	// ['name=value', 'cookieName=cookieValue']
-	const allCookies = document.cookie.split('; ');
-
-	for (const cookie of allCookies) {
-		// name = cookieName ; value = cookieValue
-		const [name, value] = cookie.split('=');
-		// Breaks by returning the value
-		if (name === wantedCookie) return value;
-	}
-	return null; // If cookie isnt there
-};

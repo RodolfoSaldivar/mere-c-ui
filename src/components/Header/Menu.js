@@ -20,7 +20,7 @@ import TodayOutlined from '@material-ui/icons/TodayOutlined';
 import FormatListBulleted from '@material-ui/icons/FormatListBulleted';
 import ShoppingCartOutlined from '@material-ui/icons/ShoppingCartOutlined';
 
-import words from '../../helpers/words';
+import useWords from '../../helpers/words';
 import { PATHS, APP_NAME, IS_IOS } from '../../helpers/constants';
 
 //================================================
@@ -32,7 +32,7 @@ const useStyles = makeStyles(() => ({
 
 //================================================
 
-const listOptions = [
+const listOptions = (words) => [
 	{ text: words.home, to: PATHS.home, icon: HomeOutlined },
 	{ text: words.users, to: PATHS.users, icon: PersonOutline },
 	{ text: words.groups, to: PATHS.groups, icon: GroupOutlined },
@@ -48,6 +48,7 @@ const listOptions = [
 const Menu = (props) => {
 	const classes = useStyles();
 	const { isMenuOpen, closeMenu } = props;
+	const words = useWords();
 
 	return (
 		<SwipeableDrawer
@@ -68,7 +69,7 @@ const Menu = (props) => {
 			<Divider />
 
 			<List className={classes.list} onClick={closeMenu}>
-				{listOptions.map((option, key) => (
+				{listOptions(words).map((option, key) => (
 					<ListItem button key={key} component={Link} to={option.to}>
 						<ListItemIcon>
 							<option.icon />
