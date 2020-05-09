@@ -10,6 +10,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 import Menu from './Menu';
+import Language from './Language';
 import { APP_NAME, PATHS } from '../../helpers/constants';
 
 //================================================
@@ -53,6 +54,9 @@ const Header = () => {
 					<Typography variant="h5" className={classes.title}>
 						<Link to={PATHS.home}>{APP_NAME}</Link>
 					</Typography>
+
+					{/* Language */}
+					<Language />
 
 					{/* Icon buttons */}
 					<IconButton color="inherit">
