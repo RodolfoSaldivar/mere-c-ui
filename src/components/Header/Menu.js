@@ -47,38 +47,44 @@ const listOptions = (words) => [
 
 const Menu = (props) => {
 	const classes = useStyles();
-	const { isMenuOpen, closeMenu } = props;
 	const words = useWords();
+	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+	const openMenu = () => setIsMenuOpen(true);
+	const closeMenu = () => setIsMenuOpen(false);
 
 	return (
-		<SwipeableDrawer
-			open={isMenuOpen}
-			disableSwipeToOpen
-			onOpen={() => null} // Avoid console error
-			onClose={closeMenu}
-			disableDiscovery={IS_IOS}
-			disableBackdropTransition={!IS_IOS}
-			ModalProps={{
-				keepMounted: true // Better open performance on mobile.
-			}}
-		>
-			<Toolbar className={classes.title}>
-				<Typography variant="h5">{APP_NAME}</Typography>
-			</Toolbar>
+		<div>
+			<div onClick={openMenu}>{props.children}</div>
+			<SwipeableDrawer
+				open={isMenuOpen}
+				disableSwipeToOpen
+				onOpen={() => null} // Avoid console error
+				onClose={closeMenu}
+				disableDiscovery={IS_IOS}
+				disableBackdropTransition={!IS_IOS}
+				ModalProps={{
+					keepMounted: true // Better open performance on mobile.
+				}}
+			>
+				<Toolbar className={classes.title}>
+					<Typography variant="h5">{APP_NAME}</Typography>
+				</Toolbar>
 
-			<Divider />
+				<Divider />
 
-			<List className={classes.list} onClick={closeMenu}>
-				{listOptions(words).map((option, key) => (
-					<ListItem button key={key} component={Link} to={option.to}>
-						<ListItemIcon>
-							<option.icon />
-						</ListItemIcon>
-						<ListItemText primary={option.text} />
-					</ListItem>
-				))}
-			</List>
-		</SwipeableDrawer>
+				<List className={classes.list} onClick={closeMenu}>
+					{listOptions(words).map((option, key) => (
+						<ListItem button key={key} component={Link} to={option.to}>
+							<ListItemIcon>
+								<option.icon />
+							</ListItemIcon>
+							<ListItemText primary={option.text} />
+						</ListItem>
+					))}
+				</List>
+			</SwipeableDrawer>
+		</div>
 	);
 };
 
@@ -86,8 +92,7 @@ const Menu = (props) => {
 
 Menu.propTypes = {
 	//From parent <Header />
-	closeMenu: PropTypes.func.isRequired,
-	isMenuOpen: PropTypes.bool.isRequired
+	children: PropTypes.element.isRequired // React element
 };
 
 export default Menu;

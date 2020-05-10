@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Avatar from '@material-ui/core/Avatar';
@@ -16,15 +16,12 @@ import { APP_NAME, PATHS } from '../../helpers/constants';
 //================================================
 
 const useStyles = makeStyles((theme) => ({
+	root: theme.forAllApp,
 	title: {
 		flexGrow: 1
 	},
 	menuButton: {
 		marginRight: theme.spacing(2)
-	},
-	root: {
-		...theme.forAllApp,
-		flexGrow: 1
 	},
 	avatar: {
 		width: theme.spacing(3),
@@ -38,45 +35,34 @@ const useStyles = makeStyles((theme) => ({
 
 const Header = () => {
 	const classes = useStyles();
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-	const openMenu = () => setIsMenuOpen(true);
-	const closeMenu = () => setIsMenuOpen(false);
 
 	return (
-		<div className={classes.root}>
-			<AppBar>
-				<Toolbar>
-					{/* Menu button */}
-					<IconButton
-						color="inherit"
-						onClick={openMenu}
-						className={classes.menuButton}
-					>
+		<AppBar className={classes.root}>
+			<Toolbar>
+				{/* Menu button */}
+				<Menu>
+					<IconButton color="inherit" className={classes.menuButton}>
 						<MenuIcon />
 					</IconButton>
+				</Menu>
 
-					{/* Title */}
-					<Typography variant="h5" className={classes.title}>
-						<Link to={PATHS.home}>{APP_NAME}</Link>
-					</Typography>
+				{/* Title */}
+				<Typography variant="h5" className={classes.title}>
+					<Link to={PATHS.home}>{APP_NAME}</Link>
+				</Typography>
 
-					{/* Language */}
-					<Language />
+				{/* Language */}
+				<Language />
 
-					{/* Icon buttons */}
-					<IconButton color="inherit">
-						<NotificationsIcon />
-					</IconButton>
-					<IconButton color="inherit">
-						<Avatar src={'' /* user image url*/} className={classes.avatar} />
-					</IconButton>
-				</Toolbar>
-			</AppBar>
-
-			{/* Menu as slider */}
-			<Menu isMenuOpen={isMenuOpen} closeMenu={closeMenu} />
-		</div>
+				{/* Icon buttons */}
+				<IconButton color="inherit">
+					<NotificationsIcon />
+				</IconButton>
+				<IconButton color="inherit">
+					<Avatar src={'' /* user image url*/} className={classes.avatar} />
+				</IconButton>
+			</Toolbar>
+		</AppBar>
 	);
 };
 
