@@ -12,6 +12,7 @@ export const COOKIE_DURATION = 100 * 365 * 86400; // 100 years in seconds
 //----> Strings
 
 export const APP_NAME = 'Mere-C';
+export const ZOOM_BG_COLOR = 'rgba(0, 0, 0, 0.75)';
 export const IMAGE_SIZE_ERROR = `No more than ${MAX_IMAGE_SIZE / 1000000} MB`;
 export const DEFAULT_ERROR_MESSAGE = 'App not loading. Please try again in few minutes.';
 

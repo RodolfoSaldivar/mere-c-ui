@@ -1,4 +1,5 @@
 import React from 'react';
+import 'react-medium-image-zoom/dist/styles.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Body from './Body';
