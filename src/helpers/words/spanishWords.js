@@ -1,4 +1,6 @@
 export default {
+	// Home -> GroupRewardsSummary
+	points: 'puntos',
 	// Header -> Menu
 	home: 'Inicio',
 	groups: 'Grupos',

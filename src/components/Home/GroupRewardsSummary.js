@@ -7,8 +7,9 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 
-import { STARTED_AS_MOBILE } from '../../helpers/constants';
+import useWords from '../../helpers/words';
 import VerticalDivider from '../Common/VerticalDivider';
+import { STARTED_AS_MOBILE } from '../../helpers/constants';
 
 //================================================
 
@@ -26,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
 const GroupRewardsSummary = () => {
 	const classes = useStyles();
+	const words = useWords();
 
 	return (
 		<div>
@@ -38,7 +40,7 @@ const GroupRewardsSummary = () => {
 					<Grid container component={Typography} variant="h6" noWrap>
 						Group 1
 						<VerticalDivider />
-						<b>50 points</b>
+						<b>50 {words.points}</b>
 					</Grid>
 				</ExpansionPanelSummary>
 
