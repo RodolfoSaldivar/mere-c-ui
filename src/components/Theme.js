@@ -26,9 +26,6 @@ const appTheme = (/*theme*/) =>
 			}
 		},
 		forAllApp: {
-			'& button': {
-				outline: 'none'
-			},
 			'& a': {
 				color: 'inherit',
 				textDecoration: 'none'
