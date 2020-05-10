@@ -1,35 +1,15 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import EditIcon from '@material-ui/icons/Edit';
-import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 
 import DynamicAvatar from '../Common/DynamicAvatar';
 import { useIsMobile } from '../../helpers/constants';
-
-//================================================
-
-const useStyles = makeStyles((theme) => ({
-	avatar: {
-		width: theme.spacing(15),
-		height: theme.spacing(15)
-	},
-	divider: {
-		height: 30,
-		margin: '0 13px'
-	},
-	badge: {
-		height: 'auto',
-		borderRadius: 15,
-		padding: 0
-	}
-}));
+import VerticalDivider from '../Common/VerticalDivider';
 
 //================================================
 
 const UserSummary = () => {
-	const classes = useStyles();
 	const isMobile = useIsMobile();
 
 	return (
@@ -54,9 +34,9 @@ const UserSummary = () => {
 						justify={isMobile ? 'center' : 'flex-start'}
 					>
 						Group 1
-						<Divider orientation="vertical" className={classes.divider} />
+						<VerticalDivider />
 						Group 2
-						<Divider orientation="vertical" className={classes.divider} />
+						<VerticalDivider />
 						Group 3
 					</Grid>
 				</Typography>
@@ -64,5 +44,7 @@ const UserSummary = () => {
 		</Grid>
 	);
 };
+
+//================================================
 
 export default UserSummary;
