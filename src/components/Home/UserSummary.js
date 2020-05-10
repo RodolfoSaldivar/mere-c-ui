@@ -1,4 +1,5 @@
 import React from 'react';
+import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import EditIcon from '@material-ui/icons/Edit';
 import Typography from '@material-ui/core/Typography';
@@ -6,6 +7,10 @@ import Typography from '@material-ui/core/Typography';
 import DynamicAvatar from '../Common/DynamicAvatar';
 import { useIsMobile } from '../../helpers/constants';
 import VerticalDivider from '../Common/VerticalDivider';
+
+//================================================
+
+const groups = ['Group 1', 'Group 2', 'Group 3'];
 
 //================================================
 
@@ -33,11 +38,15 @@ const UserSummary = () => {
 						alignItems="center"
 						justify={isMobile ? 'center' : 'flex-start'}
 					>
-						Group 1
-						<VerticalDivider />
-						Group 2
-						<VerticalDivider />
-						Group 3
+						{groups.map((name, key) => {
+							const isLast = key === groups.length - 1;
+							return (
+								<Box key={key} display="flex">
+									{name}
+									{!isLast ? <VerticalDivider /> : ''}
+								</Box>
+							);
+						})}
 					</Grid>
 				</Typography>
 			</Grid>
