@@ -1,5 +1,6 @@
 export default {
 	// Home -> GroupRewardsSummary
+	more: 'More...',
 	points: 'points',
 	// Header -> Menu
 	home: 'Home',

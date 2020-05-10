@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
+import Skeleton from '@material-ui/lab/Skeleton';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -10,7 +12,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 
 import useWords from '../../helpers/words';
 import VerticalDivider from '../Common/VerticalDivider';
-import { STARTED_AS_MOBILE } from '../../helpers/constants';
+import { PATHS, STARTED_AS_MOBILE } from '../../helpers/constants';
 
 //================================================
 
@@ -20,6 +22,13 @@ const useStyles = makeStyles((theme) => ({
 	img: {
 		maxWidth: '100%',
 		maxHeight: maxHeight
+	},
+	skeleton: {
+		display: 'flex',
+		alignItems: 'center',
+		justifyContent: 'center',
+		marginBottom: theme.spacing(1),
+		color: 'rgba(0, 0, 0, 0.4) !important'
 	},
 	imgContainer: {
 		display: 'flex',
@@ -92,7 +101,7 @@ const GroupRewardsSummary = () => {
 							expandIcon: classes.iconButton
 						}}
 					>
-						<Grid container component={Typography} variant="h6" noWrap>
+						<Grid container component={Typography} variant="h6">
 							{group.name}
 							<VerticalDivider />
 							<b>
@@ -101,8 +110,10 @@ const GroupRewardsSummary = () => {
 						</Grid>
 					</ExpansionPanelSummary>
 
-					{/* Rewards */}
+					{/* //================================================ */}
+
 					<Grid container spacing={2} component={ExpansionPanelDetails}>
+						{/* Just 3 rewards */}
 						{group.rewards.map((reward, key) => (
 							<Grid key={key} item xs={12} sm={6} md={3} align="center">
 								<div className={classes.imgContainer}>
@@ -116,6 +127,23 @@ const GroupRewardsSummary = () => {
 								</Typography>
 							</Grid>
 						))}
+
+						{/* //================================================ */}
+
+						{/* Then the skeleton */}
+						<Grid item xs={12} sm={6} md={3} align="center">
+							<Skeleton
+								width={'70%'}
+								variant="rect"
+								component={Link}
+								to={PATHS.rewards}
+								height={maxHeight}
+								className={classes.skeleton}
+							>
+								{words.more}
+							</Skeleton>
+							<Skeleton variant="text" width={'40%'} />
+						</Grid>
 					</Grid>
 				</ExpansionPanel>
 			))}
