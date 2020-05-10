@@ -26,6 +26,7 @@ const appTheme = (/*theme*/) =>
 			}
 		},
 		forAllApp: {
+			'-webkit-tap-highlight-color': 'transparent',
 			'& a': {
 				color: 'inherit',
 				textDecoration: 'none'
