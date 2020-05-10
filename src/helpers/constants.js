@@ -30,8 +30,9 @@ export const PATHS = {
 //================================================
 //----> Booleans
 
+export const STARTED_AS_MOBILE = window.screen.width < 600; // Doesnt change, material XS is < 600
 export const IS_IOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
-export const useIsMobile = () => useMediaQuery((theme) => theme.breakpoints.down('xs'));
+export const useIsMobile = () => useMediaQuery((theme) => theme.breakpoints.down('xs')); // Reacts to resizing
 
 //================================================
 //----> Functions
