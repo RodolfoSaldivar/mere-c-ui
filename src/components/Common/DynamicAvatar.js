@@ -6,7 +6,12 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { useIsMobile, ZOOM_BG_COLOR, MAX_IMAGE_SIZE, IMAGE_SIZE_ERROR } from '../../helpers/constants';
+import {
+	useIsMobile,
+	ZOOM_BG_COLOR,
+	MAX_IMAGE_SIZE,
+	IMAGE_SIZE_ERROR
+} from '../../helpers/constants';
 
 //================================================
 
@@ -20,6 +25,14 @@ const useStyles = makeStyles(() => ({
 		padding: 0,
 		height: 'auto',
 		borderRadius: 15
+	},
+	img: {
+		width: '100%',
+		height: '100%',
+		textIndent: 10000,
+		objectFit: 'cover',
+		textAlign: 'center',
+		color: 'transparent'
 	}
 }));
 
@@ -64,21 +77,12 @@ const DynamicAvatar = (props) => {
 				</IconButton>
 			}
 		>
-			<Avatar style={{ width: props.size, height: props.size }}>
-				<Zoom
-					zoomMargin={isMobile ? 10 : 100}
-					overlayBgColorEnd={ZOOM_BG_COLOR}
-				>
-					<img
-						alt=""
-						src={image || deadpool}
-						// onError={(e) => {
-						// 	e.target.onerror = null;
-						// 	e.target.src = defaultThumbnail;
-						// }}
-					/>
-				</Zoom>
-			</Avatar>
+			<Zoom zoomMargin={isMobile ? 10 : 100} overlayBgColorEnd={ZOOM_BG_COLOR}>
+				<Avatar
+					src={image || deadpool}
+					style={{ width: props.size, height: props.size }}
+				/>
+			</Zoom>
 		</Badge>
 	);
 };
