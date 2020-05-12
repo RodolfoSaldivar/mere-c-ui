@@ -9,7 +9,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const primary = '#9C27B0';
 const secondary = '#00E676';
 
-const appTheme = (/*theme*/) =>
+const appTheme = (theme) =>
 	createMuiTheme({
 		palette: {
 			primary: {
@@ -31,6 +31,17 @@ const appTheme = (/*theme*/) =>
 				color: 'inherit',
 				textDecoration: 'none'
 			}
+		},
+		dialogModal: {
+			margin: 15,
+			width: 'calc(100% - 30px)',
+			maxHeight: 'calc(100% - 30px)'
+		},
+		modalCloseButton: {
+			position: 'absolute',
+			top: theme.spacing(1),
+			right: theme.spacing(1),
+			color: theme.palette.grey[500]
 		}
 	});
 

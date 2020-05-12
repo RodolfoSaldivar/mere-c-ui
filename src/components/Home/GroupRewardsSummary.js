@@ -12,6 +12,7 @@ import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 
 import useWords from '../../helpers/words';
 import VerticalDivider from '../Common/VerticalDivider';
+import RewardsModalView from '../Rewards/RewardsModalView';
 import { PATHS, STARTED_AS_MOBILE } from '../../helpers/constants';
 
 //================================================
@@ -33,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
 	imgContainer: {
 		display: 'flex',
 		height: maxHeight,
+		cursor: 'pointer',
 		alignItems: 'center',
 		justifyContent: 'center',
 		marginBottom: theme.spacing(1)
@@ -45,9 +47,9 @@ const useStyles = makeStyles((theme) => ({
 		}
 	},
 	iconButton: {
-		backgroundColor: fade(theme.palette.secondary.main, 0.4),
+		backgroundColor: fade(theme.palette.secondary.main, 0.2),
 		'&:hover': {
-			backgroundColor: fade(theme.palette.secondary.main, 0.2)
+			backgroundColor: fade(theme.palette.secondary.main, 0.1)
 		}
 	}
 }));
@@ -85,6 +87,7 @@ const groups = [
 const GroupRewardsSummary = () => {
 	const classes = useStyles();
 	const words = useWords();
+	const hasOnlyOneGroup = groups.length === 1;
 
 	return (
 		<div>
@@ -93,10 +96,13 @@ const GroupRewardsSummary = () => {
 					key={key}
 					elevation={3}
 					className={classes.expPanRoot}
-					defaultExpanded={!STARTED_AS_MOBILE}
+					defaultExpanded={!STARTED_AS_MOBILE || hasOnlyOneGroup}
 				>
 					<ExpansionPanelSummary
 						expandIcon={<ExpandMoreIcon />}
+						IconButtonProps={{
+							size: 'small'
+						}}
 						classes={{
 							expandIcon: classes.iconButton
 						}}
@@ -105,7 +111,7 @@ const GroupRewardsSummary = () => {
 							{group.name}
 							<VerticalDivider />
 							<b>
-								{group.points} {words.points}
+								{group.points} {words.points.toLowerCase()}
 							</b>
 						</Grid>
 					</ExpansionPanelSummary>
@@ -117,12 +123,14 @@ const GroupRewardsSummary = () => {
 						{group.rewards.map((reward, key) => (
 							<Grid key={key} item xs={12} sm={6} md={3} align="center">
 								<div className={classes.imgContainer}>
-									<img alt="" src={reward.src} className={classes.img} />
+									<RewardsModalView>
+										<img alt="" src={reward.src} className={classes.img} />
+									</RewardsModalView>
 								</div>
 								<Typography>
 									{`${reward.name}: `}
 									<b>
-										{reward.points} {words.points}
+										{reward.points} {words.points.toLowerCase()}
 									</b>
 								</Typography>
 							</Grid>
