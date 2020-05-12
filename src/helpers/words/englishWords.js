@@ -1,8 +1,25 @@
 export default {
-	// Home -> GroupRewardsSummary
+	//================================================
+	//----> Multiple uses
+	close: 'Close',
+	points: 'Points',
+
+	//================================================
+	//----> Home
+	// GroupRewardsSummary
 	more: 'More...',
-	points: 'points',
-	// Header -> Menu
+
+	//================================================
+	//----> Rewards
+	// RewardsModalView
+	request: 'Request',
+
+	// RewardsModalViewContent
+	stock: 'Stock',
+
+	//================================================
+	//----> Header
+	// Menu
 	home: 'Home',
 	users: 'Users',
 	groups: 'Groups',
