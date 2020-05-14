@@ -44,8 +44,7 @@ const RewardsModalView = (props) => {
 				onClose={closeModal}
 				PaperProps={{ className: classes.dialogModal }}
 			>
-				{/*//================================================*/}
-
+				{/* Title and close btn */}
 				<Grid component={DialogTitle} container alignItems="center" disableTypography>
 					<Grid item xs={11}>
 						<Typography variant="h5">Reward name</Typography>
@@ -55,14 +54,12 @@ const RewardsModalView = (props) => {
 					</IconButton>
 				</Grid>
 
-				{/*//================================================*/}
-
+				{/* Content */}
 				<DialogContent dividers className={classes.dialogContent}>
 					<RewardsModalViewContent />
 				</DialogContent>
 
-				{/*//================================================*/}
-
+				{/* Action buttons */}
 				<DialogActions>
 					<Button
 						color="secondary"
@@ -75,8 +72,6 @@ const RewardsModalView = (props) => {
 						{words.close}
 					</Button>
 				</DialogActions>
-
-				{/*//================================================*/}
 			</Dialog>
 		</div>
 	);
