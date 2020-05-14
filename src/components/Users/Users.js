@@ -96,12 +96,12 @@ const Users = () => {
 					}
 				]}
 				columns={[
-					{ field: 'image', title: '', render: renderAvatar, sorting: false },
-					{ field: 'name', title: 'Name', sorting: false },
-					{ field: 'lastname', title: 'Lastname', sorting: false },
-					{ field: 'group', title: 'Group', sorting: false },
-					{ field: 'mail', title: 'Mail', sorting: false },
-					{ field: 'status', title: 'Status', sorting: false }
+					{ field: 'image', title: '', render: renderAvatar },
+					{ field: 'name', title: 'Name' },
+					{ field: 'lastname', title: 'Lastname' },
+					{ field: 'group', title: 'Group' },
+					{ field: 'mail', title: 'Mail' },
+					{ field: 'status', title: 'Status' }
 				]}
 				data={[
 					{
