@@ -4,9 +4,9 @@ import Grid from '@material-ui/core/Grid';
 import EditIcon from '@material-ui/icons/Edit';
 import Typography from '@material-ui/core/Typography';
 
-import DynamicAvatar from '../Common/DynamicAvatar';
 import { useIsMobile } from '../../helpers/constants';
 import VerticalDivider from '../Common/VerticalDivider';
+import AvatarImageAction from '../Common/AvatarImageAction';
 
 //================================================
 
@@ -21,7 +21,7 @@ const UserSummary = () => {
 		<Grid container alignItems="center" spacing={2}>
 			<Grid item xs={12} sm={3} md={2}>
 				<Grid container justify="center">
-					<DynamicAvatar size={120} actionIcon={EditIcon} />
+					<AvatarImageAction size={120} actionIcon={EditIcon} />
 				</Grid>
 			</Grid>
 

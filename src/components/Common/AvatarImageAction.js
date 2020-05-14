@@ -38,7 +38,7 @@ const useStyles = makeStyles(() => ({
 
 //================================================
 
-const DynamicAvatar = (props) => {
+const AvatarImageAction = (props) => {
 	const classes = useStyles();
 	const isMobile = useIsMobile();
 	const [image, setImage] = React.useState(null);
@@ -89,10 +89,10 @@ const DynamicAvatar = (props) => {
 
 //================================================
 
-DynamicAvatar.propTypes = {
+AvatarImageAction.propTypes = {
 	// From parent <UserSummary />
 	size: PropTypes.number.isRequired, // Pixels
 	actionIcon: PropTypes.any.isRequired // Material Icon
 };
 
-export default DynamicAvatar;
+export default AvatarImageAction;
