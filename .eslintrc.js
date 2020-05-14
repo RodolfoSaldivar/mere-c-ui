@@ -5,9 +5,9 @@ module.exports = {
 		'node': true,
 		'jest/globals': true
 	},
-	"settings": {
-		"react": {
-			"version": "detect"
+	'settings': {
+		'react': {
+			'version': 'detect'
 		}
 	},
 	'extends': [
@@ -33,6 +33,7 @@ module.exports = {
 	],
 	'rules': {
 		'prettier/prettier': 'error',
+		'react/display-name': 'off',
 		'no-var': 'error',
 		'prefer-const': 'error',
 		'rest-spread-spacing': ['error'],
