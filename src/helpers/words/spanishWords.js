@@ -2,6 +2,7 @@ export default {
 	//================================================
 	//----> Multiple uses
 	close: 'Cerrar',
+	users: 'Usuarios',
 	points: 'Puntos',
 
 	//================================================
@@ -22,10 +23,9 @@ export default {
 	// Menu
 	home: 'Inicio',
 	groups: 'Grupos',
-	users: 'Usuarios',
-	requests: 'Pedidos',
-	schedules: 'Ciclos',
 	history: 'Historial',
 	rewards: 'Recompensas',
+	requests: 'Pedidos',
+	schedules: 'Ciclos',
 	permissions: 'Permisos'
 };

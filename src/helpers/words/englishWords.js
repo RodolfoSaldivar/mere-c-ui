@@ -2,6 +2,7 @@ export default {
 	//================================================
 	//----> Multiple uses
 	close: 'Close',
+	users: 'Users',
 	points: 'Points',
 
 	//================================================
@@ -21,7 +22,6 @@ export default {
 	//----> Header
 	// Menu
 	home: 'Home',
-	users: 'Users',
 	groups: 'Groups',
 	history: 'History',
 	rewards: 'Rewards',
