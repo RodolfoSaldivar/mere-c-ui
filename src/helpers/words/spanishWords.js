@@ -1,14 +1,26 @@
 export default {
 	//================================================
 	//----> Multiple uses
+	view: 'Ver',
+	edit: 'Editar',
 	close: 'Cerrar',
 	users: 'Usuarios',
 	points: 'Puntos',
+	groups: 'Grupos',
+	permissions: 'Permisos',
 
 	//================================================
 	//----> Home
 	// GroupRewardsSummary
 	more: 'Más...',
+
+	//================================================
+	//----> Users
+	// Users
+	name: 'Nombre',
+	mail: 'Mail',
+	status: 'Estatus',
+	lastname: 'Apellidos',
 
 	//================================================
 	//----> Rewards
@@ -22,10 +34,21 @@ export default {
 	//----> Header
 	// Menu
 	home: 'Inicio',
-	groups: 'Grupos',
 	history: 'Historial',
 	rewards: 'Recompensas',
 	requests: 'Pedidos',
 	schedules: 'Ciclos',
-	permissions: 'Permisos'
+
+	//================================================
+	//----> Common
+	// MaterialTable
+	of: 'de',
+	rows: 'filas',
+	search: 'Buscar',
+	nextPage: 'Siguiente Página',
+	lastPage: 'Última Página',
+	firstPage: 'Primera Página',
+	rowsPerPage: 'Filas por página:',
+	previousPage: 'Página Anterior',
+	emptyData: 'Sin registros para mostrar'
 };

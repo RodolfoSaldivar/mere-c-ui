@@ -1,14 +1,26 @@
 export default {
 	//================================================
 	//----> Multiple uses
+	view: 'View',
+	edit: 'Edit',
 	close: 'Close',
 	users: 'Users',
 	points: 'Points',
+	groups: 'Groups',
+	permissions: 'Permissions',
 
 	//================================================
 	//----> Home
 	// GroupRewardsSummary
 	more: 'More...',
+
+	//================================================
+	//----> Users
+	// Users
+	name: 'Name',
+	mail: 'Mail',
+	status: 'Status',
+	lastname: 'Lastname',
 
 	//================================================
 	//----> Rewards
@@ -22,10 +34,21 @@ export default {
 	//----> Header
 	// Menu
 	home: 'Home',
-	groups: 'Groups',
 	history: 'History',
 	rewards: 'Rewards',
 	requests: 'Requests',
 	schedules: 'Schedules',
-	permissions: 'Permissions'
+
+	//================================================
+	//----> Common
+	// MaterialTable
+	of: 'of',
+	rows: 'rows',
+	search: 'Search',
+	nextPage: 'Next Page',
+	lastPage: 'Last Page',
+	firstPage: 'First Page',
+	rowsPerPage: 'Rows per page:',
+	previousPage: 'Previous Page',
+	emptyData: 'No records to display'
 };
