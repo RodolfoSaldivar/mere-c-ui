@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { ThemeProvider } from '@material-ui/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { createMuiTheme } from '@material-ui/core/styles';
+import { fade } from '@material-ui/core/styles/colorManipulator';
 
 //================================================
 
@@ -42,6 +43,13 @@ const appTheme = (theme) =>
 			top: theme.spacing(1),
 			right: theme.spacing(1),
 			color: theme.palette.grey[500]
+		},
+		bgcSecondaryFade: {
+			color: 'rgba(0, 0, 0, 0.5)',
+			backgroundColor: fade(secondary, 0.2),
+			'&:hover': {
+				backgroundColor: fade(secondary, 0.1)
+			}
 		}
 	});
 

@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import { fade } from '@material-ui/core/styles/colorManipulator';
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 
@@ -20,6 +19,7 @@ import { PATHS, STARTED_AS_MOBILE } from '../../helpers/constants';
 const maxHeight = 175;
 
 const useStyles = makeStyles((theme) => ({
+	iconButton: theme.bgcSecondaryFade,
 	img: {
 		maxWidth: '100%',
 		maxHeight: maxHeight
@@ -44,12 +44,6 @@ const useStyles = makeStyles((theme) => ({
 		borderRadius: 4,
 		'&:before': {
 			backgroundColor: 'transparent'
-		}
-	},
-	iconButton: {
-		backgroundColor: fade(theme.palette.secondary.main, 0.2),
-		'&:hover': {
-			backgroundColor: fade(theme.palette.secondary.main, 0.1)
 		}
 	}
 }));

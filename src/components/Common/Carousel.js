@@ -13,6 +13,7 @@ import { useIsMobile, ZOOM_BG_COLOR } from '../../helpers/constants';
 //================================================
 
 const useStyles = makeStyles((theme) => ({
+	iconButton: theme.bgcSecondaryFade,
 	img: {
 		maxHeight: 175,
 		maxWidth: '100%'
@@ -22,12 +23,6 @@ const useStyles = makeStyles((theme) => ({
 		display: 'flex',
 		alignItems: 'center',
 		justifyContent: 'center'
-	},
-	iconButton: {
-		backgroundColor: fade(theme.palette.secondary.main, 0.2),
-		'&:hover': {
-			backgroundColor: fade(theme.palette.secondary.main, 0.1)
-		}
 	},
 	container: {
 		'& button': {
