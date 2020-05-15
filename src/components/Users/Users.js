@@ -1,58 +1,19 @@
 import React from 'react';
-import MaterialTable from 'material-table';
-import Zoom from 'react-medium-image-zoom';
-import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
-import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
+import EditIcon from '@material-ui/icons/EditOutlined';
+import VisibilityIcon from '@material-ui/icons/VisibilityOutlined';
+import FormatListBulleted from '@material-ui/icons/FormatListBulleted';
 
 import UsersHeader from './UsersHeader';
-import { useIsMobile, ZOOM_BG_COLOR } from '../../helpers/constants';
+import useWords from '../../helpers/words';
+import MaterialTable from '../Common/MaterialTable';
 
 //================================================
 
-const deadpool = 'https://media.heartlandtv.com/images/Pool1.PNG';
-
 const useStyles = makeStyles((theme) => ({
-	title: {
-		marginRight: theme.spacing(3)
-	},
-	avatar: {
-		width: 35,
-		height: 35
-	},
-	header: {
-		display: 'flex',
-		alignItems: 'center',
-		padding: theme.spacing(2, 2, 2, 0)
-	},
 	paper: {
-		padding: theme.spacing(0, 2),
-		// Search input
-		'& div.MuiFormControl-root': {
-			padding: theme.spacing(0, 2),
-			[theme.breakpoints.down('xs')]: {
-				width: '100%'
-			}
-		},
-		// Container of title/button and search input
-		'& >div >div.MuiToolbar-root': {
-			padding: 0,
-			// Space between the title/button and search input
-			'& >div:not(.MuiFormControl-root)': {
-				[theme.breakpoints.down('xs')]: {
-					display: 'none'
-				}
-			}
-		},
-		// Headers of the table
-		'& th': {
-			fontWeight: 'bold'
-		},
-		// Rows except the pagination row
-		'& tr:hover:not(.MuiTableRow-footer)': {
-			backgroundColor: 'rgba(0, 0, 0, 0.05)'
-		}
+		padding: theme.spacing(0, 2)
 	}
 }));
 
@@ -60,16 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Users = () => {
 	const classes = useStyles();
-	const isMobile = useIsMobile();
-
-	//----> Displays the avatar on the table
-	const renderAvatar = (rowData) => (
-		<Box display="flex" justifyContent="center">
-			<Zoom zoomMargin={isMobile ? 10 : 100} overlayBgColorEnd={ZOOM_BG_COLOR}>
-				<Avatar className={classes.avatar} src={rowData.image || deadpool} />
-			</Zoom>
-		</Box>
-	);
+	const words = useWords();
 
 	//----> Component
 	return (
@@ -78,77 +30,63 @@ const Users = () => {
 
 			<MaterialTable
 				title={<UsersHeader hidden={{ xsDown: true }} />}
-				options={{
-					search: true,
-					padding: 'dense',
-					pageSize: 10
-				}}
-				components={{
-					Container: Box
-				}}
+				columnImageKey={0}
 				actions={[
 					{
-						icon: 'save',
-						tooltip: 'Save User',
-						onClick: (/*event, rowData*/) => {
-							// Do save operation
+						tooltip: words.view,
+						icon: () => <VisibilityIcon fontSize="small" />,
+						onClick: (event, rowData) => {
+							console.log('rowData: ', rowData);
+						}
+					},
+					{
+						tooltip: words.edit,
+						icon: () => <EditIcon fontSize="small" />,
+						onClick: (event, rowData) => {
+							console.log('rowData: ', rowData);
+						}
+					},
+					{
+						tooltip: words.permissions,
+						icon: () => <FormatListBulleted fontSize="small" />,
+						onClick: (event, rowData) => {
+							console.log('rowData: ', rowData);
 						}
 					}
 				]}
 				columns={[
-					{ field: 'image', title: '', render: renderAvatar },
-					{ field: 'name', title: 'Name' },
-					{ field: 'lastname', title: 'Lastname' },
-					{ field: 'group', title: 'Group' },
-					{ field: 'mail', title: 'Mail' },
-					{ field: 'status', title: 'Status' }
+					{ field: 'image', title: '' },
+					{ field: 'name', title: words.name },
+					{ field: 'lastname', title: words.lastname },
+					{ field: 'groups', title: words.groups },
+					{ field: 'mail', title: words.mail },
+					{ field: 'status', title: words.status }
 				]}
 				data={[
 					{
+						id: 13,
 						image: '',
 						name: 'Rodolfo',
 						lastname: 'Saldivar',
-						group: 'Group 1',
+						groups: 'Group 1',
 						mail: 'algo@algo.com',
 						status: 'loco'
 					},
 					{
+						id: 69,
 						image: '',
 						name: 'David',
 						lastname: 'Colin',
-						group: 'Group 1, Group 2, Group 3, Group 4',
+						groups: 'Group 1, Group 2, Group 3, Group 4',
 						mail: 'algo@algo.com',
 						status: 'bello'
 					}
 				]}
-				localization={{
-					body: {
-						emptyDataSourceMessage: 'No records to display'
-					},
-					header: {
-						actions: ''
-					},
-					toolbar: {
-						searchTooltip: 'Search',
-						searchPlaceholder: 'Search'
-					},
-					pagination: {
-						labelDisplayedRows: '{from}-{to} of {count}',
-						labelRowsSelect: 'rows',
-						labelRowsPerPage: 'Rows per page:',
-						firstAriaLabel: 'First Page',
-						firstTooltip: 'First Page',
-						previousAriaLabel: 'Previous Page',
-						previousTooltip: 'Previous Page',
-						nextAriaLabel: 'Next Page',
-						nextTooltip: 'Next Page',
-						lastAriaLabel: 'Last Page',
-						lastTooltip: 'Last Page'
-					}
-				}}
 			/>
 		</Paper>
 	);
 };
+
+//================================================
 
 export default Users;
