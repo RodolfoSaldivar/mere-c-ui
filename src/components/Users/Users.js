@@ -28,12 +28,6 @@ const useStyles = makeStyles((theme) => ({
 	},
 	paper: {
 		padding: theme.spacing(0, 2),
-		// Space between the title/button and search input
-		'& div[class^="MTableToolbar-spacer"]': {
-			[theme.breakpoints.down('xs')]: {
-				display: 'none'
-			}
-		},
 		// Search input
 		'& div[class^="MuiFormControl-root"]': {
 			padding: theme.spacing(0, 2),
@@ -43,7 +37,13 @@ const useStyles = makeStyles((theme) => ({
 		},
 		// Container of title/button and search input
 		'& div.MuiToolbar-root': {
-			padding: 0
+			padding: 0,
+			// Space between the title/button and search input
+			'& >div:not(.MuiFormControl-root)': {
+				[theme.breakpoints.down('xs')]: {
+					display: 'none'
+				}
+			}
 		},
 		// Headers of the table
 		'& th': {
