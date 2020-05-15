@@ -90,7 +90,8 @@ const AvatarImageAction = (props) => {
 //================================================
 
 AvatarImageAction.propTypes = {
-	// From parent <UserSummary />
+	// From parents
+	// <UserSummary />
 	size: PropTypes.number.isRequired, // Pixels
 	actionIcon: PropTypes.any.isRequired // Material Icon
 };
