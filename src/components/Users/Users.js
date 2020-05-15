@@ -29,14 +29,14 @@ const useStyles = makeStyles((theme) => ({
 	paper: {
 		padding: theme.spacing(0, 2),
 		// Search input
-		'& div[class^="MuiFormControl-root"]': {
+		'& div.MuiFormControl-root': {
 			padding: theme.spacing(0, 2),
 			[theme.breakpoints.down('xs')]: {
 				width: '100%'
 			}
 		},
 		// Container of title/button and search input
-		'& div.MuiToolbar-root': {
+		'& >div >div.MuiToolbar-root': {
 			padding: 0,
 			// Space between the title/button and search input
 			'& >div:not(.MuiFormControl-root)': {
