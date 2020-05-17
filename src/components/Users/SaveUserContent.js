@@ -2,20 +2,20 @@ import React from 'react';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Chip from '@material-ui/core/Chip';
 import Grid from '@material-ui/core/Grid';
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
-import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
-
 import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import Chip from '@material-ui/core/Chip';
+import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 
 import useWords from '../../helpers/words';
 import * as usersActions from '../../actions/usersActions';
 import AvatarImageAction from '../Common/AvatarImageAction';
+// import SaveGroupModal from 
 
 //================================================
 
@@ -46,7 +46,7 @@ const groupOptions = ['Group 1', 'Group 2', 'Group 3', 'Group 4'];
 
 //================================================
 
-const SaveUserModalContent = (props) => {
+const SaveUserContent = (props) => {
 	const classes = useStyles();
 	const words = useWords();
 	const [selectOpen, setSelectOpen] = React.useState(false);
@@ -157,7 +157,7 @@ const SaveUserModalContent = (props) => {
 
 //================================================
 
-SaveUserModalContent.propTypes = {
+SaveUserContent.propTypes = {
 	// From usersReducer
 	name: PropTypes.string.isRequired,
 	mail: PropTypes.string.isRequired,
@@ -174,4 +174,4 @@ SaveUserModalContent.propTypes = {
 
 const mapStateToProps = ({ usersReducer }) => usersReducer;
 
-export default connect(mapStateToProps, usersActions)(SaveUserModalContent);
+export default connect(mapStateToProps, usersActions)(SaveUserContent);

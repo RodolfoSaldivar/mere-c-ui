@@ -6,7 +6,7 @@ import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-import SaveUserModal from './SaveUserModal';
+import SaveUser from './SaveUser';
 import useWords from '../../helpers/words';
 
 //================================================
@@ -34,11 +34,11 @@ const UsersHeader = (props) => {
 				<Typography variant="h5" className={classes.title}>
 					{words.users}
 				</Typography>
-				<SaveUserModal>
+				<SaveUser>
 					<Fab size="small" color="secondary">
 						<AddIcon />
 					</Fab>
-				</SaveUserModal>
+				</SaveUser>
 			</div>
 		</Hidden>
 	);

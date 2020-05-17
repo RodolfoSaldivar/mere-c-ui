@@ -13,7 +13,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 
 import useWords from '../../helpers/words';
-import SaveUserModalContent from './SaveUserModalContent';
+import SaveUserContent from './SaveUserContent';
 
 //================================================
 
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 
 //================================================
 
-const SaveUserModal = (props) => {
+const SaveUser = (props) => {
 	const classes = useStyles();
 	const words = useWords();
 	const [open, setOpen] = React.useState(true);
@@ -57,7 +57,7 @@ const SaveUserModal = (props) => {
 
 				{/* Content */}
 				<DialogContent dividers className={classes.dialogContent}>
-					<SaveUserModalContent />
+					<SaveUserContent />
 				</DialogContent>
 
 				{/* Action buttons */}
@@ -81,9 +81,9 @@ const SaveUserModal = (props) => {
 
 //================================================
 
-SaveUserModal.propTypes = {
+SaveUser.propTypes = {
 	// From parent <UsersHeader />
 	children: PropTypes.node.isRequired
 };
 
-export default SaveUserModal;
+export default SaveUser;
