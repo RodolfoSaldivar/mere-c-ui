@@ -1,6 +1,10 @@
-import * as types from '../types/headerTypes';
+import * as types from '../types/loggedUserTypes';
 
 const INITIAL_STATE = {
+	name: '',
+	mail: '',
+	groups: [],
+	lastname: '',
 	language: '' // MX, US, etc
 };
 

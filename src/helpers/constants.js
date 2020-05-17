@@ -33,13 +33,3 @@ export const PATHS = {
 export const STARTED_AS_MOBILE = window.screen.width < 600; // Doesnt change, material XS is < 600
 export const IS_IOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 export const useIsMobile = () => useMediaQuery((theme) => theme.breakpoints.down('xs')); // Reacts to resizing
-
-//================================================
-//----> Functions
-
-// headerActions - updateNotificationsBadge: "-1" is a negative number.
-export const negativeNumberIn = (actionFileName, functionName, number) => {
-	console.info(
-		`${actionFileName} - ${functionName}:\n"${number}" is a negative number.`
-	);
-};

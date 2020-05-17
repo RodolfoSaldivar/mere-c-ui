@@ -6,7 +6,7 @@ import englishWords from './englishWords';
 //================================================
 
 const useWords = () => {
-	const language = useSelector((state) => state.headerReducer.language);
+	const language = useSelector((state) => state.loggedUserReducer.language);
 	let words = spanishWords; // Default
 	if (language === 'US') words = englishWords;
 	return words;

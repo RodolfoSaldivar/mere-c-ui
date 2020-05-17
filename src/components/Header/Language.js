@@ -15,7 +15,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import mexFlag from '../../img/mexFlag.png';
 import usaFlag from '../../img/usaFlag.png';
 import { COOKIE_DURATION } from '../../helpers/constants';
-import * as headerActions from '../../actions/headerActions';
+import * as loggedUserActions from '../../actions/loggedUserActions';
 
 //================================================
 
@@ -112,12 +112,12 @@ const Language = (props) => {
 //================================================
 
 Language.propTypes = {
-	// From headerReducer
+	// From loggedUserReducer
 	language: PropTypes.string.isRequired,
-	// From headerActions
+	// From loggedUserActions
 	setLanguage: PropTypes.func.isRequired
 };
 
-const mapStateToProps = ({ headerReducer }) => headerReducer;
+const mapStateToProps = ({ loggedUserReducer }) => loggedUserReducer;
 
-export default connect(mapStateToProps, headerActions)(Language);
+export default connect(mapStateToProps, loggedUserActions)(Language);
