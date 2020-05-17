@@ -1,0 +1,2 @@
+export const SET_HIDE_FIRST_MODAL = 'common_SET_HIDE_FIRST_MODAL';
+export const SET_FIRST_OPENED_MODAL = 'common_SET_FIRST_OPENED_MODAL';
