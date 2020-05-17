@@ -84,10 +84,7 @@ const AvatarImageAction = (props) => {
 			}
 		>
 			<Zoom zoomMargin={isMobile ? 10 : 100} overlayBgColorEnd={ZOOM_BG_COLOR}>
-				<Avatar
-					src={image || ''}
-					style={{ width: props.size, height: props.size }}
-				/>
+				<Avatar src={image || ''} style={{ width: props.size, height: props.size }} />
 			</Zoom>
 		</Badge>
 	);

@@ -24,6 +24,8 @@ export default {
 	user: 'User',
 
 	//SaveUserModalContent
+	new: 'New',
+	group: 'Group',
 	password: 'Password',
 
 	//================================================

@@ -30,16 +30,16 @@ const UsersHeader = (props) => {
 
 	return (
 		<Hidden {...props.hidden}>
-			<SaveUserModal>
-				<div className={classes.header}>
-					<Typography variant="h5" className={classes.title}>
-						{words.users}
-					</Typography>
+			<div className={classes.header}>
+				<Typography variant="h5" className={classes.title}>
+					{words.users}
+				</Typography>
+				<SaveUserModal>
 					<Fab size="small" color="secondary">
 						<AddIcon />
 					</Fab>
-				</div>
-			</SaveUserModal>
+				</SaveUserModal>
+			</div>
 		</Hidden>
 	);
 };
