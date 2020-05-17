@@ -16,3 +16,7 @@ export const setPassword = (string = '') => ({
 	type: types.SET_PASSWORD,
 	payload: string
 });
+export const setGroups = (arrayOfStrings = []) => ({
+	type: types.SET_GROUPS,
+	payload: arrayOfStrings
+});

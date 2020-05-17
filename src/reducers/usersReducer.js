@@ -1,8 +1,10 @@
 import * as types from '../types/usersTypes';
 
 const INITIAL_STATE = {
+	// Used to save users
 	name: '',
 	mail: '',
+	groups: [],
 	lastname: '',
 	password: ''
 };
@@ -14,6 +16,9 @@ export default (state = INITIAL_STATE, action = {}) => {
 
 		case types.SET_MAIL:
 			return { ...state, mail: action.payload };
+
+		case types.SET_GROUPS:
+			return { ...state, groups: action.payload };
 
 		case types.SET_LASTNAME:
 			return { ...state, lastname: action.payload };
