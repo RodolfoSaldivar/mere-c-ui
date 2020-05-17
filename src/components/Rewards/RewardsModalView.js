@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Grid from '@material-ui/core/Grid';
 import Dialog from '@material-ui/core/Dialog';
@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 import useWords from '../../helpers/words';
 import RewardsModalViewContent from './RewardsModalViewContent';
@@ -18,11 +19,9 @@ import RewardsModalViewContent from './RewardsModalViewContent';
 
 const useStyles = makeStyles((theme) => ({
 	dialogModal: theme.dialogModal,
+	dialogContent: theme.dialogContent,
 	modalCloseButton: theme.modalCloseButton,
-	marginRight: { marginRight: theme.spacing(5) },
-	dialogContent: {
-		padding: theme.spacing(2, 3)
-	}
+	marginRight: { marginRight: theme.spacing(5) }
 }));
 
 //================================================
@@ -30,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 const RewardsModalView = (props) => {
 	const classes = useStyles();
 	const words = useWords();
-	const [open, setOpen] = useState(false);
+	const [open, setOpen] = React.useState(false);
 
 	const openModal = () => setOpen(true);
 	const closeModal = () => setOpen(false);
@@ -65,10 +64,11 @@ const RewardsModalView = (props) => {
 						color="secondary"
 						variant="contained"
 						className={classes.marginRight}
+						startIcon={<AddShoppingCartIcon />}
 					>
-						{words.request}
+						{words.request}!
 					</Button>
-					<Button onClick={closeModal} variant="outlined">
+					<Button onClick={closeModal} variant="outlined" startIcon={<CloseIcon />}>
 						{words.close}
 					</Button>
 				</DialogActions>

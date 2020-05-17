@@ -59,8 +59,7 @@ const Users = () => {
 					{ field: 'name', title: words.name },
 					{ field: 'lastname', title: words.lastname },
 					{ field: 'groups', title: words.groups },
-					{ field: 'mail', title: words.mail },
-					{ field: 'status', title: words.status }
+					{ field: 'mail', title: words.mail }
 				]}
 				data={[
 					{
@@ -69,8 +68,7 @@ const Users = () => {
 						name: 'Rodolfo',
 						lastname: 'Saldivar',
 						groups: 'Group 1',
-						mail: 'algo@algo.com',
-						status: 'loco'
+						mail: 'algo@algo.com'
 					},
 					{
 						id: 69,
@@ -78,8 +76,7 @@ const Users = () => {
 						name: 'David',
 						lastname: 'Colin',
 						groups: 'Group 1, Group 2, Group 3, Group 4',
-						mail: 'algo@algo.com',
-						status: 'bello'
+						mail: 'algo@algo.com'
 					}
 				]}
 			/>

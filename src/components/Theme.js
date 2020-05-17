@@ -44,6 +44,9 @@ const appTheme = (theme) =>
 			right: theme.spacing(1),
 			color: theme.palette.grey[500]
 		},
+		dialogContent: {
+			padding: theme.spacing(2, 3)
+		},
 		bgcSecondaryFade: {
 			color: 'rgba(0, 0, 0, 0.5)',
 			backgroundColor: fade(secondary, 0.2),
