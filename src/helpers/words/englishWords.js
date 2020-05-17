@@ -2,11 +2,15 @@ export default {
 	//================================================
 	//----> Multiple uses
 	view: 'View',
+	mail: 'Mail',
 	edit: 'Edit',
+	name: 'Name',
+	save: 'Save',
 	close: 'Close',
 	users: 'Users',
 	points: 'Points',
 	groups: 'Groups',
+	lastname: 'Lastname',
 	permissions: 'Permissions',
 
 	//================================================
@@ -16,11 +20,11 @@ export default {
 
 	//================================================
 	//----> Users
-	// Users
-	name: 'Name',
-	mail: 'Mail',
-	status: 'Status',
-	lastname: 'Lastname',
+	// SaveUserModal
+	user: 'User',
+
+	//SaveUserModalContent
+	password: 'Password',
 
 	//================================================
 	//----> Rewards
