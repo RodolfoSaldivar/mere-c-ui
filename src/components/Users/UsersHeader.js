@@ -6,6 +6,7 @@ import Hidden from '@material-ui/core/Hidden';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
+import SaveUserModal from './SaveUserModal';
 import useWords from '../../helpers/words';
 
 //================================================
@@ -29,14 +30,16 @@ const UsersHeader = (props) => {
 
 	return (
 		<Hidden {...props.hidden}>
-			<div className={classes.header}>
-				<Typography variant="h5" className={classes.title}>
-					{words.users}
-				</Typography>
-				<Fab size="small" color="secondary">
-					<AddIcon />
-				</Fab>
-			</div>
+			<SaveUserModal>
+				<div className={classes.header}>
+					<Typography variant="h5" className={classes.title}>
+						{words.users}
+					</Typography>
+					<Fab size="small" color="secondary">
+						<AddIcon />
+					</Fab>
+				</div>
+			</SaveUserModal>
 		</Hidden>
 	);
 };
