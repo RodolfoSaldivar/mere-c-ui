@@ -21,6 +21,9 @@ const useStyles = makeStyles(() => ({
 	label: {
 		height: 24
 	},
+	sizeSmall: {
+		padding: 4
+	},
 	badge: {
 		padding: 0,
 		height: 'auto',
@@ -63,7 +66,7 @@ const AvatarImageAction = (props) => {
 			classes={{ badge: classes.badge }}
 			anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
 			badgeContent={
-				<IconButton size="small">
+				<IconButton size="small" classes={{ sizeSmall: classes.sizeSmall }}>
 					<input
 						hidden
 						type="file"
