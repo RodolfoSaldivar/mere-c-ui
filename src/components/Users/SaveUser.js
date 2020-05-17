@@ -60,7 +60,9 @@ const SaveUser = (props) => {
 	//----> Component
 	return (
 		<div className={classes.width100}>
-			<div className={classes.width100} onClick={openModal}>{props.children}</div>
+			<div className={classes.width100} onClick={openModal}>
+				{props.children}
+			</div>
 			<Dialog
 				open={open}
 				maxWidth="sm"
