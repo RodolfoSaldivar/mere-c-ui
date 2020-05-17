@@ -13,9 +13,9 @@ import FormControl from '@material-ui/core/FormControl';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 
 import useWords from '../../helpers/words';
+import SaveGroup from '../Groups/SaveGroup';
 import * as usersActions from '../../actions/usersActions';
 import AvatarImageAction from '../Common/AvatarImageAction';
-// import SaveGroupModal from 
 
 //================================================
 
@@ -49,6 +49,7 @@ const groupOptions = ['Group 1', 'Group 2', 'Group 3', 'Group 4'];
 const SaveUserContent = (props) => {
 	const classes = useStyles();
 	const words = useWords();
+	const ref = React.createRef(); // Used "ref" just to avoid console error
 	const [selectOpen, setSelectOpen] = React.useState(false);
 
 	//----> Calls to usersActions
@@ -71,12 +72,14 @@ const SaveUserContent = (props) => {
 	//----> Component
 	return (
 		<Grid container spacing={3} component="form" autoComplete="off">
+			{/* Avatar */}
 			<Grid item xs={12}>
 				<Grid container justify="center" alignItems="center">
 					<AvatarImageAction size={150} actionIcon={AddAPhotoIcon} />
 				</Grid>
 			</Grid>
 
+			{/* Normal inputs */}
 			<Grid item xs={12} sm={6}>
 				<TextField
 					fullWidth
@@ -113,6 +116,7 @@ const SaveUserContent = (props) => {
 				/>
 			</Grid>
 
+			{/* Groups */}
 			<Grid item xs={12}>
 				<FormControl fullWidth>
 					<InputLabel id="saveUser_groupField">{words.groups}</InputLabel>
@@ -140,9 +144,12 @@ const SaveUserContent = (props) => {
 							</div>
 						)}
 					>
-						<MenuItem value={-1} className={classes.newGroup}>
-							{words.new} {words.group}
-						</MenuItem>
+						{/* Used "ref" just to avoid console error */}
+						<SaveGroup ref={ref}>
+							<MenuItem value={-1} className={classes.newGroup}>
+								{words.new} {words.group}
+							</MenuItem>
+						</SaveGroup>
 						{groupOptions.map((name) => (
 							<MenuItem key={name} value={name} className={classes.multiLine}>
 								{name}
