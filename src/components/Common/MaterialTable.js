@@ -12,8 +12,6 @@ import { useIsMobile, ZOOM_BG_COLOR, STARTED_AS_MOBILE } from '../../helpers/con
 
 //================================================
 
-const deadpool = 'https://media.heartlandtv.com/images/Pool1.PNG';
-
 const useStyles = makeStyles((theme) => ({
 	avatar: {
 		width: 35,
@@ -71,7 +69,7 @@ const InternalMaterialTable = (props) => {
 		const renderAvatar = (rowData) => (
 			<Box display="flex" justifyContent="center">
 				<Zoom zoomMargin={isMobile ? 10 : 100} overlayBgColorEnd={ZOOM_BG_COLOR}>
-					<Avatar className={classes.avatar} src={rowData.image || deadpool} />
+					<Avatar className={classes.avatar} src={rowData.image || ''} />
 				</Zoom>
 			</Box>
 		);

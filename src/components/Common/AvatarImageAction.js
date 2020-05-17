@@ -15,14 +15,13 @@ import {
 
 //================================================
 
-const deadpool = 'https://media.heartlandtv.com/images/Pool1.PNG';
-
 const useStyles = makeStyles(() => ({
-	label: {
-		height: 24
-	},
 	sizeSmall: {
 		padding: 4
+	},
+	label: {
+		height: 24,
+		cursor: 'pointer'
 	},
 	badge: {
 		padding: 0,
@@ -55,7 +54,11 @@ const AvatarImageAction = (props) => {
 
 		const reader = new FileReader();
 		reader.readAsDataURL(image);
-		reader.onloadend = () => setImage(reader.result);
+		reader.onloadend = () => {
+			setImage(reader.result);
+			console.log('image: ', image);
+			console.log('reader: ', reader);
+		};
 	};
 
 	//----> Component
@@ -82,7 +85,7 @@ const AvatarImageAction = (props) => {
 		>
 			<Zoom zoomMargin={isMobile ? 10 : 100} overlayBgColorEnd={ZOOM_BG_COLOR}>
 				<Avatar
-					src={image || deadpool}
+					src={image || ''}
 					style={{ width: props.size, height: props.size }}
 				/>
 			</Zoom>
