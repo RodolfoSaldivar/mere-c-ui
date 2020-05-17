@@ -10,8 +10,8 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 
 import useWords from '../../helpers/words';
+import RewardView from '../Rewards/RewardView';
 import VerticalDivider from '../Common/VerticalDivider';
-import RewardsModalView from '../Rewards/RewardsModalView';
 import { PATHS, STARTED_AS_MOBILE } from '../../helpers/constants';
 
 //================================================
@@ -117,9 +117,9 @@ const GroupRewardsSummary = () => {
 						{group.rewards.map((reward, key) => (
 							<Grid key={key} item xs={12} sm={6} md={3} align="center">
 								<div className={classes.imgContainer}>
-									<RewardsModalView>
+									<RewardView>
 										<img alt="" src={reward.src} className={classes.img} />
-									</RewardsModalView>
+									</RewardView>
 								</div>
 								<Typography>
 									{`${reward.name}: `}

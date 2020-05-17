@@ -13,7 +13,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 
 import useWords from '../../helpers/words';
-import RewardsModalViewContent from './RewardsModalViewContent';
+import RewardViewContent from './RewardViewContent';
 
 //================================================
 
@@ -58,7 +58,7 @@ const RewardsModalView = (props) => {
 
 				{/* Content */}
 				<DialogContent dividers className={classes.dialogContent}>
-					<RewardsModalViewContent />
+					<RewardViewContent />
 				</DialogContent>
 
 				{/* Action buttons */}
