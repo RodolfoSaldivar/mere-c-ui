@@ -18,6 +18,7 @@ import RewardsModalViewContent from './RewardsModalViewContent';
 //================================================
 
 const useStyles = makeStyles((theme) => ({
+	width100: { width: '100%' },
 	dialogModal: theme.dialogModal,
 	dialogContent: theme.dialogContent,
 	modalCloseButton: theme.modalCloseButton,
@@ -35,8 +36,8 @@ const RewardsModalView = (props) => {
 	const closeModal = () => setOpen(false);
 
 	return (
-		<div>
-			<div onClick={openModal}>{props.children}</div>
+		<div className={classes.width100}>
+			<div className={classes.width100} onClick={openModal}>{props.children}</div>
 			<Dialog
 				open={open}
 				maxWidth="sm"

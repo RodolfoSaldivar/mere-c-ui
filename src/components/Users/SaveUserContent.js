@@ -49,7 +49,6 @@ const groupOptions = ['Group 1', 'Group 2', 'Group 3', 'Group 4'];
 const SaveUserContent = (props) => {
 	const classes = useStyles();
 	const words = useWords();
-	const ref = React.createRef(); // Used "ref" just to avoid console error
 	const [selectOpen, setSelectOpen] = React.useState(false);
 
 	//----> Calls to usersActions
@@ -58,7 +57,6 @@ const SaveUserContent = (props) => {
 	const handleLastname = (event) => props.setLastname(event.target.value);
 	const handlePassword = (event) => props.setPassword(event.target.value);
 	const handleGroups = (event) => {
-		setSelectOpen(false);
 		const { value: selected } = event.target;
 		// If last option of array is "New Group" (-1)
 		if (_.last(selected) < 0) {
@@ -66,6 +64,7 @@ const SaveUserContent = (props) => {
 			console.log('New Group was selected');
 			return;
 		}
+		setSelectOpen(false);
 		props.setGroups(selected);
 	};
 
@@ -144,12 +143,11 @@ const SaveUserContent = (props) => {
 							</div>
 						)}
 					>
-						{/* Used "ref" just to avoid console error */}
-						<SaveGroup ref={ref}>
-							<MenuItem value={-1} className={classes.newGroup}>
+						<MenuItem value={-1} className={classes.newGroup}>
+							<SaveGroup>
 								{words.new} {words.group}
-							</MenuItem>
-						</SaveGroup>
+							</SaveGroup>
+						</MenuItem>
 						{groupOptions.map((name) => (
 							<MenuItem key={name} value={name} className={classes.multiLine}>
 								{name}

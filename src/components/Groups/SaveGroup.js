@@ -20,6 +20,7 @@ import * as commonActions from '../../actions/commonActions';
 //================================================
 
 const useStyles = makeStyles((theme) => ({
+	width100: { width: '100%' },
 	dialogModal: theme.dialogModal,
 	dialogContent: theme.dialogContent,
 	modalCloseButton: theme.modalCloseButton,
@@ -28,8 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 //================================================
 
-// Used "ref" just to avoid console error
-const SaveGroup = React.forwardRef((props, ref) => {
+const SaveGroup = (props) => {
 	const classes = useStyles();
 	const words = useWords();
 	const [open, setOpen] = React.useState(false);
@@ -59,9 +59,8 @@ const SaveGroup = React.forwardRef((props, ref) => {
 
 	//----> Component
 	return (
-		// Used "ref" just to avoid console error
-		<div ref={ref}>
-			<div onClick={openModal}>{props.children}</div>
+		<div className={classes.width100}>
+			<div className={classes.width100} onClick={openModal}>{props.children}</div>
 			<Dialog
 				open={open}
 				maxWidth="sm"
@@ -104,7 +103,7 @@ const SaveGroup = React.forwardRef((props, ref) => {
 			</Dialog>
 		</div>
 	);
-});
+};
 
 //================================================
 
