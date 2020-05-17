@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import Dialog from '@material-ui/core/Dialog';
 import Button from '@material-ui/core/Button';
@@ -14,6 +15,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 
 import useWords from '../../helpers/words';
 import SaveUserContent from './SaveUserContent';
+import * as commonActions from '../../actions/commonActions';
 
 //================================================
 
@@ -29,11 +31,32 @@ const useStyles = makeStyles((theme) => ({
 const SaveUser = (props) => {
 	const classes = useStyles();
 	const words = useWords();
-	const [open, setOpen] = React.useState(true);
+	const [open, setOpen] = React.useState(false);
+	const {
+		hideFirstModal,
+		firstOpenedModal,
+		setHideFirstModal,
+		setFirstOpenedModal
+	} = props;
 
-	const openModal = () => setOpen(true);
-	const closeModal = () => setOpen(false);
+	//----> When a second modal has been opened
+	const hideBackdrop = firstOpenedModal === 'user' && hideFirstModal;
 
+	//----> Handle modal
+	const openModal = () => {
+		setOpen(true);
+		// If no modal has been opened before
+		if (!firstOpenedModal) setFirstOpenedModal('user');
+		else setHideFirstModal(true);
+	};
+	const closeModal = () => {
+		setOpen(false);
+		// Resets to empty string
+		if (firstOpenedModal === 'user') setFirstOpenedModal();
+		else setHideFirstModal(false);
+	};
+
+	//----> Component
 	return (
 		<div>
 			<div onClick={openModal}>{props.children}</div>
@@ -41,6 +64,8 @@ const SaveUser = (props) => {
 				open={open}
 				maxWidth="sm"
 				onClose={closeModal}
+				transitionDuration={0}
+				hideBackdrop={hideBackdrop}
 				PaperProps={{ className: classes.dialogModal }}
 			>
 				{/* Title and close btn */}
@@ -68,7 +93,7 @@ const SaveUser = (props) => {
 						startIcon={<SaveIcon />}
 						className={classes.marginRight}
 					>
-						Save
+						{words.save}
 					</Button>
 					<Button onClick={closeModal} variant="outlined" startIcon={<CloseIcon />}>
 						{words.close}
@@ -82,8 +107,17 @@ const SaveUser = (props) => {
 //================================================
 
 SaveUser.propTypes = {
-	// From parent <UsersHeader />
-	children: PropTypes.node.isRequired
+	// From parents
+	// <UsersHeader />
+	children: PropTypes.node.isRequired,
+	// From commonReducer
+	hideFirstModal: PropTypes.bool.isRequired,
+	firstOpenedModal: PropTypes.string.isRequired,
+	// From commonActions
+	setHideFirstModal: PropTypes.func.isRequired,
+	setFirstOpenedModal: PropTypes.func.isRequired
 };
 
-export default SaveUser;
+const mapStateToProps = ({ commonReducer }) => commonReducer;
+
+export default connect(mapStateToProps, commonActions)(SaveUser);
