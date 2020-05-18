@@ -19,6 +19,11 @@ export default {
 	more: 'Más...',
 
 	//================================================
+	//----> Groups
+	// SaveGroupContent
+	defaultSchedule: 'Ciclo Predeterminado',
+
+	//================================================
 	//----> Users
 	// SaveUserModal
 	user: 'Usuario',
