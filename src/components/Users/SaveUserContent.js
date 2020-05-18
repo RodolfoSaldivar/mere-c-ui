@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-const groupOptions = ['Group 1', 'Group 2', 'Group 3', 'Group 4'];
+const groupOptions = ['Group 1', 'Rroup 2', 'Sroup 3', 'Hroup 4'];
 
 //================================================
 
@@ -60,8 +60,7 @@ const SaveUserContent = (props) => {
 		const { value: selected } = event.target;
 		// If last option of array is "New Group" (-1)
 		if (_.last(selected) < 0) {
-			// Inside "New Group" option, if exists in list
-			console.log('New Group was selected');
+			document.getElementById('saveUser_saveGroupTrigger').click();
 			return;
 		}
 		setSelectOpen(false);
@@ -144,9 +143,7 @@ const SaveUserContent = (props) => {
 						)}
 					>
 						<MenuItem value={-1} className={classes.newGroup}>
-							<SaveGroup>
-								{words.new} {words.group}
-							</SaveGroup>
+							{words.new} {words.group}
 						</MenuItem>
 						{groupOptions.map((name) => (
 							<MenuItem key={name} value={name} className={classes.multiLine}>
@@ -155,6 +152,11 @@ const SaveUserContent = (props) => {
 						))}
 					</Select>
 				</FormControl>
+
+				{/* Opens save group modal by triggering the click */}
+				<SaveGroup>
+					<div id="saveUser_saveGroupTrigger" />
+				</SaveGroup>
 			</Grid>
 		</Grid>
 	);
