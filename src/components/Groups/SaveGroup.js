@@ -14,7 +14,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 
 import useWords from '../../helpers/words';
-// import SaveGroupContent from './SaveGroupContent';
+import SaveGroupContent from './SaveGroupContent';
 import * as commonActions from '../../actions/commonActions';
 
 //================================================
@@ -85,7 +85,7 @@ const SaveGroup = (props) => {
 
 				{/* Content */}
 				<DialogContent dividers className={classes.dialogContent}>
-					Modal content
+					<SaveGroupContent />
 				</DialogContent>
 
 				{/* Action buttons */}
