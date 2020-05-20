@@ -75,8 +75,8 @@ const AvatarImageAction = (props) => {
 						hidden
 						type="file"
 						accept="image/*"
-						id={`${parentName}_dynamicImageInput`}
 						onChange={imageChange}
+						id={`${parentName}_dynamicImageInput`}
 					/>
 					<label
 						className={classes.label}
