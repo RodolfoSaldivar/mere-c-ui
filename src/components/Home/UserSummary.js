@@ -21,7 +21,11 @@ const UserSummary = () => {
 		<Grid container alignItems="center" spacing={2}>
 			<Grid item xs={12} sm={3} md={2}>
 				<Grid container justify="center">
-					<AvatarImageAction size={120} actionIcon={EditIcon} />
+					<AvatarImageAction
+						size={120}
+						actionIcon={EditIcon}
+						parentName="UserSummary"
+					/>
 				</Grid>
 			</Grid>
 

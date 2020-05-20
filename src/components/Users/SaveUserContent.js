@@ -73,7 +73,11 @@ const SaveUserContent = (props) => {
 			{/* Avatar */}
 			<Grid item xs={12}>
 				<Grid container justify="center" alignItems="center">
-					<AvatarImageAction size={150} actionIcon={AddAPhotoIcon} />
+					<AvatarImageAction
+						size={150}
+						actionIcon={AddAPhotoIcon}
+						parentName="SaveUserContent"
+					/>
 				</Grid>
 			</Grid>
 

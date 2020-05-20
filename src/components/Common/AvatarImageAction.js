@@ -43,6 +43,7 @@ const useStyles = makeStyles(() => ({
 const AvatarImageAction = (props) => {
 	const classes = useStyles();
 	const isMobile = useIsMobile();
+	const { parentName } = props;
 	const [image, setImage] = React.useState(null);
 
 	//----> Handles image preview
@@ -74,10 +75,13 @@ const AvatarImageAction = (props) => {
 						hidden
 						type="file"
 						accept="image/*"
-						id="dynamicImageInput"
+						id={`${parentName}_dynamicImageInput`}
 						onChange={imageChange}
 					/>
-					<label htmlFor="dynamicImageInput" className={classes.label}>
+					<label
+						className={classes.label}
+						htmlFor={`${parentName}_dynamicImageInput`}
+					>
 						<props.actionIcon />
 					</label>
 				</IconButton>
@@ -95,8 +99,11 @@ const AvatarImageAction = (props) => {
 AvatarImageAction.propTypes = {
 	// From parents
 	// <UserSummary />
+	// <SaveUserContent />
+	// <SaveGroupContent />
 	size: PropTypes.number.isRequired, // Pixels
-	actionIcon: PropTypes.any.isRequired // Material Icon
+	actionIcon: PropTypes.any.isRequired, // Material Icon
+	parentName: PropTypes.string.isRequired
 };
 
 export default AvatarImageAction;
