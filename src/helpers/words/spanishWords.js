@@ -51,6 +51,20 @@ export default {
 	schedules: 'Ciclos',
 
 	//================================================
+	//----> Schedules
+	// SaveScheduleContent
+	day: 'Día',
+	week: 'Semana',
+	month: 'Mes',
+	every: 'cada',
+	point: 'Punto',
+	ofTheWeek: 'de la',
+	ofTheMonth: 'del',
+	willGive: 'le dará a los miembros',
+	scheduleCalled: 'Ciclo llamado',
+	dayNames: ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
+
+	//================================================
 	//----> Common
 	// MaterialTable
 	of: 'de',

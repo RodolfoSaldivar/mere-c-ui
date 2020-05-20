@@ -51,6 +51,28 @@ export default {
 	schedules: 'Schedules',
 
 	//================================================
+	//----> Schedules
+	// SaveScheduleContent
+	day: 'Day',
+	week: 'Week',
+	month: 'Month',
+	every: 'every',
+	point: 'Point',
+	ofTheWeek: 'of the',
+	ofTheMonth: 'of the', // In spanish they are different
+	willGive: 'will give members',
+	scheduleCalled: 'Schedule called',
+	dayNames: [
+		'Monday',
+		'Tuesday',
+		'Wednesday',
+		'Thursday',
+		'Friday',
+		'Saturday',
+		'Sunday'
+	],
+
+	//================================================
 	//----> Common
 	// MaterialTable
 	of: 'of',
